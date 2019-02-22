@@ -14,4 +14,5 @@ export interface Order{
     status: string;
     items: CheckoutItem[];
     total: number;
+    isEdit?: boolean
 }

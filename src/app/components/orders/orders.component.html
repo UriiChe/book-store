@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="col-sm-6" *ngFor="let order of orders; let i = index">
+  <div class="col-sm-6 mb-3" *ngFor="let order of orders; let i = index">
     <div class="card mb-3">
       <div class="card-header">Информация о заказе №{{i + 1}}</div>
       <ul class="list-group list-group-flush">
@@ -11,7 +11,7 @@
                 name="name"
                 [(ngModel)]="order.name"
                 required
-                [readonly]="!isEdit">
+                [readonly]="!order.isEdit">
          </li>
         <li class="list-group-item">
             <label for="email">Email: {{ order.email }}</label>
@@ -21,7 +21,7 @@
                   name="email"
                   [(ngModel)]="order.email"
                   required
-                  [readonly]="!isEdit">
+                  [readonly]="!order.isEdit">
         </li>
         <li class="list-group-item">
             <label for="phone">Phone: {{ order.phone }}</label>
@@ -31,11 +31,11 @@
                   name="phone"
                   [(ngModel)]="order.phone"
                   required
-                  [readonly]="!isEdit">
+                  [readonly]="!order.isEdit">
         </li>
       </ul>
-      <button *ngIf="!isEdit" class="btn btn-primary mt-3 mb-3" (click)="isEdit = !isEdit">Edit</button>
-      <button *ngIf="isEdit" class="btn btn-success mt-3 mb-3" (click)="isEdit = !isEdit; saveChanges(order)">Save</button>
+      <button *ngIf="!order.isEdit" class="btn btn-primary mt-3 mb-3" (click)="order.isEdit = !order.isEdit">Edit</button>
+      <button *ngIf="order.isEdit" class="btn btn-success mt-3 mb-3" (click)="order.isEdit = !order.isEdit; saveChanges(order)">Save</button>
     </div>
     <table class="table">
       <thead>
@@ -62,7 +62,7 @@
                       (change)="onChangeItemCount(item, order)"></td>
           <td>{{ item.sum }}</td>
           <td>
-              <i class="fa fa-remove ml-auto text-danger" (click)="deleteBasketItem(item.id)"></i>
+              <i class="fa fa-remove ml-auto text-danger" (click)="deleteBasketItem(item, order)"></i>
           </td>
         </tr>
         <tr>

@@ -78,7 +78,7 @@ export class ClientCheckoutComponent implements OnInit {
         this.router.navigate(['/']);
         this.basketService.clearBasket();
         this.fleshMessage.show("Your purchase has been successfully completed, our specialists will call your back.", {
-          cssClass: "alert-success", timeout: 2500
+          cssClass: "alert-success", timeout: 3500
         })
       }
     });
