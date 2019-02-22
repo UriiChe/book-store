@@ -27,14 +27,16 @@ export class OrdersComponent implements OnInit {
     })
   }
   onChangeItemCount(item, order){
-    this.isEdit = true;
+    order.isEdit = true;
     item.sum = item.price * item.count;
     order.total = order.items.reduce((sum, item)=>{
       return sum += item.sum;
     }, 0)
   }
-  deleteBasketItem(id:string){
-    console.log(id);
+  deleteBasketItem(item, order){
+    const index = order.items.indexOf(item);
+    order.items.splice(index, 1);
+    this.onChangeItemCount(item, order);
   }
   saveChanges(order){
     this.salesService.editOrder(order).then(()=>{

@@ -68,7 +68,7 @@ export class ClientHomeComponent implements OnInit {
     this.basketService.addItem(newBasketItem).subscribe(book=>{
       if(book){
         this.flashmessage.show('Item successfully added to basket', {
-          cssClass: 'alert alert-success', timeout: 2500
+          cssClass: 'alert alert-success', timeout: 2500, closeOnClick: true
         })
       }
     })

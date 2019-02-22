@@ -1,5 +1,6 @@
 .container{
     display: flex;
+    flex-wrap: wrap;
     .count{
         max-width: 80px;
         width: 100%;
