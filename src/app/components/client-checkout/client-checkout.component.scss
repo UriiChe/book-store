@@ -1,0 +1,22 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    .count{
+        max-width: 80px;
+        width: 100%;
+    }
+    .checkoutBtn{
+        margin-left: auto;
+    }
+    .fa-remove{
+        cursor: pointer;
+    }
+    .alert-message{
+        color: red;
+        font-size: 12px;
+        text-align: right;
+    }
+    .backToBasketBtn{
+        color: #fff;
+    }
+}

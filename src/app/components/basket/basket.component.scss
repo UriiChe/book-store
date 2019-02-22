@@ -1,0 +1,11 @@
+.basket-container:hover{
+    .dropdown-menu{
+        display: block;
+        .fa-remove{
+            cursor: pointer;
+        }
+    }
+};
+.empty{
+    color: rgba(255, 255, 255, 1);
+};

@@ -1,0 +1,50 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 mx-auto">
+      <div class="card">
+        <div class="card-body">
+          <h1 class="text-center mb-4 mt-4">
+            <span class="text-primary">Books panel</span> Registration
+          </h1>
+          <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input type="text" 
+                      class="form-control" 
+                      id="name"  
+                      formControlName="userName">
+              <p class="alert-message" *ngIf="registrationForm.controls['userName'].invalid && registrationForm.controls['userName'].touched">{{ getUserNameError() }}</p>
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="text" 
+                      class="form-control" 
+                      id="email"   
+                      formControlName="userEmail">
+              <p class="alert-message" *ngIf="registrationForm.controls['userEmail'].invalid && registrationForm.controls['userEmail'].touched">{{ getUserEmailError() }}</p>
+            </div>
+            <fieldset formGroupName="password">
+              <div class="form-group">
+              <label for="password">Password</label>
+              <input type="password" 
+                    class="form-control" 
+                    id="password"
+                    formControlName="userPassword">
+              <p class="alert-message" *ngIf="registrationForm.controls['password'].get('userPassword').invalid && registrationForm.controls['password'].get('userPassword').touched">{{ getUserPasswordError() }}</p>
+              </div>
+              <div class="form-group">
+                <label for="confirmPassword">Confirm password</label>
+                <input type="password" 
+                      class="form-control" 
+                      id="confirmPassword"
+                      formControlName="confirmPassword">
+                <p class="alert-message" *ngIf="registrationForm.controls['password'].get('confirmPassword').invalid && registrationForm.controls['password'].get('confirmPassword').touched">{{ getConfirmPasswordError() }}</p>
+              </div>
+            </fieldset>
+            <button [disabled]="registrationForm.invalid" class="btn btn-primary btn-block">Registration</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

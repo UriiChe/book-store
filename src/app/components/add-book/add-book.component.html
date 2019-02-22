@@ -1,0 +1,47 @@
+<div class="container">
+    <div class="card card-body">
+      <h2 class="card-title text-primary">Add new book</h2>
+      <form [formGroup]="bookForm" (ngSubmit)="addBook()">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" 
+                  id="name" 
+                  class="form-control"
+                  formControlName="name">
+        </div>
+        <div class="form-group">
+          <label for="author">Author</label>
+          <input type="text" 
+                  id="author" 
+                  class="form-control"
+                  formControlName="author">
+        </div>
+        <div class="form-group">  
+          <label for="description">Description</label>
+          <input type="text" 
+                  id="description" 
+                  class="form-control"
+                  formControlName="description">
+        </div>
+        <fieldset formArrayName="links">
+          <div *ngFor="let link of bookForm.controls['links'].controls; let i=index">
+            <div class="form-group" formGroupName="{{i}}">
+                <label for="link{{i}}"> Link: {{link.controls['type'].value}}</label>
+                <input type="text" 
+                        id="link{{i}}" 
+                        class="form-control" 
+                        formControlName="link">
+            </div>
+          </div>
+        </fieldset>
+        <div class="form-group">
+          <label for="price">Price</label>
+          <input type="number" 
+                id="price"
+                class="form-control" 
+                formControlName="price">
+        </div>
+        <button [disabled]="bookForm  .invalid" class="btn btn-primary">Add book</button>
+      </form>
+    </div>
+  </div>

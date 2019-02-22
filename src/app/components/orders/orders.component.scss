@@ -1,0 +1,10 @@
+.container{
+    display: flex;
+    .count{
+        max-width: 80px;
+        width: 100%;
+    }
+    .fa-remove{
+        cursor: pointer;
+    }
+}

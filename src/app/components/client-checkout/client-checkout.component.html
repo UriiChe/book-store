@@ -1,0 +1,72 @@
+<div class="container" *ngIf="!addressIsVisible">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Price</th>
+        <th scope="col">Count</th>
+        <th scope="col">Sum</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of checkoutList">
+        <th scope="row">{{ item.name }}</th>
+        <td>{{ item.price }}</td>
+        <td><input class="form-control count" 
+                   type="number" 
+                   name="count" 
+                   [(ngModel)]="item.count" 
+                   min = "1"
+                   max = "100"
+                   (change)="onChangeItemCount(item)"></td>
+        <td>{{ item.sum }}</td>
+        <td>
+            <i class="fa fa-remove ml-auto text-danger" (click)="deleteBasketItem(item.id)"></i>
+        </td>
+      </tr>
+      <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td>{{ totalSum }}</td>
+          <td></td>
+        </tr>
+    </tbody>
+  </table>
+  <button class="btn btn-primary checkoutBtn" (click)="addressIsVisible = !addressIsVisible">Оформить заказ</button>
+</div>
+<div class="container" *ngIf="addressIsVisible">
+  <div class="col-md-6 mx-auto">
+    <div class="card card-body mx-auto">
+        <form novalidate [formGroup]="checkOutForm" (ngSubmit)="onSubmit()">
+            <div class="form-group">
+              <label for="name">ФИО</label>
+              <input type="text" 
+                      class="form-control" 
+                      id="name" 
+                      formControlName="name">
+              <p class="alert-message" *ngIf="checkOutForm.controls['name'].invalid && checkOutForm.controls['name'].touched">{{ getUserNameError() }}</p>
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="text" 
+                      class="form-control" 
+                      id="email" 
+                      formControlName="email">
+              <p class="alert-message" *ngIf="checkOutForm.controls['email'].invalid && checkOutForm.controls['email'].touched">{{ getUserEmailError() }}</p>
+            </div>
+            <div class="form-group">
+              <label for="phone">Phone</label>
+              <input type="text" 
+                      class="form-control" 
+                      id="phone" 
+                      formControlName="phone">
+              <p class="alert-message" *ngIf="checkOutForm.controls['phone'].invalid && checkOutForm.controls['phone'].touched">{{ getUserPhoneError() }}</p>
+            </div>
+            <a class="btn btn-success btn-block backToBasketBtn" (click)="addressIsVisible = !addressIsVisible">Вернуться в корзину</a>
+            <button type="submit" [disabled]="checkOutForm.invalid" class="btn btn-primary btn-block">Купить</button>
+          </form>
+    </div>
+  </div>
+</div>

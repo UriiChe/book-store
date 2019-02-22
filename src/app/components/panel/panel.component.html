@@ -1,0 +1,51 @@
+<div class="container">
+  <div class="controls d-flex align-items-center mb-3">
+    <div class="col-3">
+      <a class="btn btn-primary" routerLink="/addbook">Add new book</a>
+    </div>
+  <div class="col-4">
+    <input type="text"
+            class="form-control"
+            name="searchText"
+            [(ngModel)]="searchText"
+            placeholder="Search book"
+            (keyup)=" searchBook()">
+  </div>
+  <div class="col-4">
+    <app-currency></app-currency>
+  </div>
+</div>
+  <!-- Books -->
+  <div class="row" *ngIf="!searchText">
+    <div class="col-4 mb-3" *ngFor="let book of books">
+      <div class="card card-body">
+        <div class="card-title d-flex align-items-center">{{ book.name }} <span class="badge badge-success ml-auto"> {{ book.price * currentCurrency['coefficient'] | currency: currentCurrency['name'] }}</span></div>
+        <span class="text-info">{{ book.author }}</span>
+        <span class="text-primary">{{ book.date | customDate:"ru-RU":"short"}}</span>
+        <p class="card-text">{{ book.description }}</p>
+        <div *ngFor="let link of book.links">
+            <a href="{{link.link}}" >{{ link.type }}</a>
+        </div>
+        <button class="btn btn-danger mt-3" (click)="deleteBook(book.id)">Delete</button>
+        <a class="btn btn-primary mt-3" routerLink="/books/{{ book.id }}" >Edit</a>
+      </div>
+    </div>
+  </div>
+  <!-- Searching result -->
+  <div class="row" *ngIf="searchText">
+    <!-- alert -->
+    <div class="alert alert-info col-6 mx-auto" *ngIf="searchText && !searchingResult.length">Books not found</div>
+      <div class="col-4" *ngFor="let book of searchingResult">
+        <div class="card card-body">
+            <div class="card-title d-flex align-items-center">{{ book.name }} <span class="badge badge-success ml-auto"> {{ book.price | currency: 'USD': 'symbol': '2.0' }}</span></div>
+          <span class="text-info">{{ book.author }}</span>
+          <p class="card-text">{{ book.description }}</p>
+          <div *ngFor="let link of book.links">
+            <a href="{{link.link}}" >{{ link.type }}</a>
+          </div>
+          <button class="btn btn-danger mt-3" (click)="deleteBook(book.id)">Delete</button>
+          <a class="btn btn-primary mt-3" routerLink="/books/{{ book.id }}" >Edit</a>
+        </div>
+      </div>
+    </div>
+</div>
