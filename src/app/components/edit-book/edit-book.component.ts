@@ -78,7 +78,10 @@ export class EditBookComponent implements OnInit {
       })
     });
   }
-
+  get bookFormLinks(){
+    return <FormArray>this.bookForm.get('links');
+  }
+  
   ngOnInit() {
     this.bookId = this.activatedRoute.snapshot.params['id'];
     this.booksService.getBookById(this.bookId).toPromise().then((book:any)=>{

@@ -4,7 +4,7 @@ import { BooksService } from '../../services/books.service';
 import { Router }  from '@angular/router';
 import { IdService } from '../../services/id.service';
 import { FlashMessagesService } from 'angular2-flash-messages';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, FormArray } from '@angular/forms';
 import * as firebase from 'firebase/app'
 
 @Component({
@@ -55,6 +55,9 @@ export class AddBookComponent implements OnInit {
           cssClass: 'alert-danger', timeout: 2500
         })
       })
+    }
+    get bookFormLinks(){
+      return <FormArray>this.bookForm.get('links');
     }
 
   ngOnInit() {

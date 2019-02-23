@@ -10,7 +10,7 @@ import { FlashMessagesService } from 'angular2-flash-messages';
   styleUrls: ['./registration.component.scss']
 })
 export class RegistrationComponent implements OnInit {
-  private registrationForm: FormGroup; 
+  public registrationForm: FormGroup; 
   constructor(public fb: FormBuilder,
               private _authService: AuthService,
               private _router: Router,
