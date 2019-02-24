@@ -16,10 +16,10 @@ const routes: Routes = [
   { path: '', component: ClientHomeComponent },
   { path: 'checkout', component: ClientCheckoutComponent },
   { path: 'login', component: LoginComponent},
-  { path: 'orders', component: OrdersComponent, canActivate: [AuthGuard] },
   { path: 'registration', component: RegistrationComponent },
+  { path: 'about', component: AboutComponent },
+  { path: 'orders', component: OrdersComponent, canActivate: [AuthGuard] },
   { path: 'panel', component: PanelComponent, canActivate: [AuthGuard] },
-  { path: 'about', component: AboutComponent, canActivate: [AuthGuard] },
   { path: 'addbook', component: AddBookComponent, canActivate: [AuthGuard] },
   { path: 'books/:id', component: EditBookComponent, canActivate: [AuthGuard] },
   { path: '**', component: NotFoundComponent }
