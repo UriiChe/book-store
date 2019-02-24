@@ -14,10 +14,10 @@ import { OrdersComponent } from './components/orders/orders.component';
 
 const routes: Routes = [
   { path: '', component: ClientHomeComponent },
-  { path: 'checkout', component: ClientCheckoutComponent },
   { path: 'login', component: LoginComponent},
   { path: 'registration', component: RegistrationComponent },
   { path: 'about', component: AboutComponent },
+  { path: 'checkout', component: ClientCheckoutComponent },
   { path: 'orders', component: OrdersComponent, canActivate: [AuthGuard] },
   { path: 'panel', component: PanelComponent, canActivate: [AuthGuard] },
   { path: 'addbook', component: AddBookComponent, canActivate: [AuthGuard] },
