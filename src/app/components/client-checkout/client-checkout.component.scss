@@ -1,6 +1,7 @@
 .container{
     display: flex;
     flex-direction: column;
+    margin-bottom: 1rem;
     .count{
         max-width: 80px;
         width: 100%;
@@ -18,5 +19,16 @@
     }
     .backToBasketBtn{
         color: #fff;
+    }
+}
+@media screen and (max-width: "500px"){
+    .table{
+        font-size: 0.7rem;
+    }
+}
+@media screen and (max-width: "500px"){
+    .table th, table td{
+        padding: 4px;
+        vertical-align: middle;
     }
 }

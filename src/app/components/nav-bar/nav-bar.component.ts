@@ -23,7 +23,6 @@ export class NavBarComponent implements OnInit {
   }
   changeBtn(){
     this.showNav = !this.showNav;
-    console.log(this.showNav);
   }
 
   ngOnInit() {

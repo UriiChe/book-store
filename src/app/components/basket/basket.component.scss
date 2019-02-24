@@ -1,6 +1,8 @@
 .basket-container:hover{
     .dropdown-menu{
         display: block;
+        right: 0;
+        left: auto;
         .fa-remove{
             cursor: pointer;
         }
@@ -12,3 +14,11 @@
 .empty{
     color: rgba(255, 255, 255, 1);
 };
+@media screen and (max-width: "550px"){
+    .basket-container:hover{
+        .dropdown-menu{
+            right: auto;
+            left: -4.5rem;
+        }
+    }
+}

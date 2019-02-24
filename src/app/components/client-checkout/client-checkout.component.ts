@@ -63,7 +63,7 @@ export class ClientCheckoutComponent implements OnInit {
     this.checkOutForm.controls['email'].hasError('email') ? 'Email введен неверно' : '';
   }
   getUserPhoneError(){
-    return this.checkOutForm.controls['phone'].hasError('required') ? 'Необходимо ввести номер своего телефона' : '';
+    return this.checkOutForm.controls['phone'].hasError('required') ? 'Необходимо ввести номер телефона' : '';
   }
   onSubmit(){
     const newOrder = {
