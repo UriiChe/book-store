@@ -1,6 +1,49 @@
+.brand-navBtn-block{
+    order: 1;
+    display: flex;
+}
+.action-basket-block{
+    order: 3;
+}
+.navbar-collapse{
+    order: 2;
+}
 .navbar-toggler{
     margin-right: auto;
 }
 .basket-container{
     padding: 0;
+}
+.brand-on-lg{
+    display: block;
+}
+.brand-on-sm{
+    display: none;
+}
+
+@media (min-width: 320px) and (max-width: 767px) { 
+    .action-basket-block{
+        order: 2;
+    }
+    .navbar-collapse{
+        order: 3;
+    }
+}
+@media screen and (max-width: 550px){
+    .user-name{
+        display: none;
+    }
+}
+@media screen and (max-width: 450px){
+    .brand-on-lg{
+        display: none;
+    }
+    .brand-on-sm{
+        display: block;
+    }
+}
+@media screen and (max-width: 374px){
+    .brand-on-sm{
+        display: none;
+    }
 }

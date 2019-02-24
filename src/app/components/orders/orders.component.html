@@ -1,93 +1,95 @@
 <div class="container">
-  <div class="col-sm-6 mb-3" *ngFor="let order of orders; let i = index">
-    <div class="card mb-3">
-      <div class="card-header">Информация о заказе №{{i + 1}}</div>
-      <ul class="list-group list-group-flush">
-        <li class="list-group-item">
-          <label for="name">Имя: {{ order.name }}</label>
-          <input class="form-control"
-                type="text"
-                id="name"
-                name="name"
-                [(ngModel)]="order.name"
-                required
-                [readonly]="!order.isEdit">
-         </li>
-        <li class="list-group-item">
-            <label for="email">Email: {{ order.email }}</label>
+  <div class="row">
+    <div class="col-12 col-md-6 mb-3" *ngFor="let order of orders; let i = index">
+      <div class="card mb-3">
+        <div class="card-header">Информация о заказе №{{i + 1}}</div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">
+            <label for="name">Имя: {{ order.name }}</label>
             <input class="form-control"
                   type="text"
-                  id="email"
-                  name="email"
-                  [(ngModel)]="order.email"
+                  id="name"
+                  name="name"
+                  [(ngModel)]="order.name"
                   required
                   [readonly]="!order.isEdit">
-        </li>
-        <li class="list-group-item">
-            <label for="phone">Phone: {{ order.phone }}</label>
-            <input class="form-control"
-                  type="text"
-                  id="phone"
-                  name="phone"
-                  [(ngModel)]="order.phone"
-                  required
-                  [readonly]="!order.isEdit">
-        </li>
-        <li class="list-group-item">
-          <button *ngIf="!order.isEdit" class="btn btn-primary mt-3 mb-3" (click)="order.isEdit = !order.isEdit">Edit</button>
-          <button *ngIf="order.isEdit" class="btn btn-success mt-3 mb-3" (click)="order.isEdit = !order.isEdit; saveChanges(order)">Save</button>
-        </li>
-      </ul>
-      <div class="card-body">
-        <table class="table">
-          <thead>
-            <tr>
-              <th>#</th>
-              <th>Name</th>
-              <th>Price</th>
-              <th>Count</th>
-              <th>Sum</th>
-              <th></th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let item of order.items; let i = index">
-              <th>{{ i + 1 }}</th>
-              <th scope="row">{{ item.name }}</th>
-              <td>{{ item.price }}</td>
-              <td class="count" ><input class="form-control" 
-                          type="number" 
-                          name="count" 
-                          [(ngModel)]="item.count" 
-                          min = "1"
-                          max = "100"
-                          (change)="onChangeItemCount(item, order)"></td>
-              <td>{{ item.sum }}</td>
-              <td>
-                  <i class="fa fa-remove ml-auto text-danger" (click)="deleteBasketItem(item, order)"></i>
-              </td>
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td>{{ order.total }}</td>
-                <td></td>
+          </li>
+          <li class="list-group-item">
+              <label for="email">Email: {{ order.email }}</label>
+              <input class="form-control"
+                    type="text"
+                    id="email"
+                    name="email"
+                    [(ngModel)]="order.email"
+                    required
+                    [readonly]="!order.isEdit">
+          </li>
+          <li class="list-group-item">
+              <label for="phone">Phone: {{ order.phone }}</label>
+              <input class="form-control"
+                    type="text"
+                    id="phone"
+                    name="phone"
+                    [(ngModel)]="order.phone"
+                    required
+                    [readonly]="!order.isEdit">
+          </li>
+          <li class="list-group-item">
+            <button *ngIf="!order.isEdit" class="btn btn-primary mt-3 mb-3" (click)="order.isEdit = !order.isEdit">Edit</button>
+            <button *ngIf="order.isEdit" class="btn btn-success mt-3 mb-3" (click)="order.isEdit = !order.isEdit; saveChanges(order)">Save</button>
+          </li>
+        </ul>
+        <div class="card-body">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Count</th>
+                <th>Sum</th>
+                <th></th>
               </tr>
-          </tbody>
-        </table> 
-      </div>
-      <div class="card-footer">
-        <select class="form-control" 
-          [(ngModel)]="order.status" 
-          name="status" 
-          (change)="changeStatus(order)"
-  >
-          <option value="processing">processing</option>
-          <option value="shiping">shiping</option>
-          <option value="closed">closed</option>
-        </select>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of order.items; let i = index">
+                <th>{{ i + 1 }}</th>
+                <th scope="row">{{ item.name }}</th>
+                <td>{{ item.price }}</td>
+                <td class="count"><input class="form-control" 
+                            type="number" 
+                            name="count" 
+                            [(ngModel)]="item.count" 
+                            min = "1"
+                            max = "100"
+                            (change)="onChangeItemCount(item, order)"></td>
+                <td>{{ item.sum }}</td>
+                <td>
+                    <i class="fa fa-remove ml-auto text-danger" (click)="deleteBasketItem(item, order)"></i>
+                </td>
+              </tr>
+              <tr>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td>{{ order.total }}</td>
+                  <td></td>
+                </tr>
+            </tbody>
+          </table> 
+        </div>
+        <div class="card-footer">
+          <select class="form-control" 
+            [(ngModel)]="order.status" 
+            name="status" 
+            (change)="changeStatus(order)"
+    >
+            <option value="processing">processing</option>
+            <option value="shiping">shiping</option>
+            <option value="closed">closed</option>
+          </select>
+        </div>
       </div>
     </div>
   </div>

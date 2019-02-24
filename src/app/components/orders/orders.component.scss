@@ -8,9 +8,12 @@
         width: 100%;
     }
     .count{
-        max-width: 100px;
-        width: 100%;
-        padding: 0.75rem 0;
+        .form-control{
+            max-width: 50px;
+            width: 100%;
+            padding: 0.75rem 0;
+            text-align: center;
+        }
     }
     .fa-remove{
         cursor: pointer;
@@ -19,6 +22,17 @@
         margin-bottom: 0;
         td, th{
           vertical-align: middle  
+        }
+    }
+}
+@media screen and (max-width: "1000px"){
+    .table{
+        font-size: 0.7rem;
+        th, td{
+            padding: 0.25rem;
+        };
+        .form-control{
+            font-size: 0.8rem;
         }
     }
 }

@@ -12,6 +12,7 @@ export class NavBarComponent implements OnInit {
   isLogin:boolean = false;
   userName: string;
   isPublic:boolean = false;
+  showNav:boolean = false;
   constructor( private authService: AuthService,
                private router: Router,
                public fleshMessage: FlashMessagesService) { }
@@ -19,6 +20,10 @@ export class NavBarComponent implements OnInit {
     this.authService.logout().then(()=>{
       this.router.navigate(['/login']);
     });
+  }
+  changeBtn(){
+    this.showNav = !this.showNav;
+    console.log(this.showNav);
   }
 
   ngOnInit() {
