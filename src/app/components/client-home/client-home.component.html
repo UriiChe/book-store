@@ -11,7 +11,7 @@
         </div>
         <button *ngIf="!book.isAddBasket" class="btn btn-success mt-3" (click)="book.isAddBasket = true; addBookToBasket(book)">Добавить в корзину</button>
         <button *ngIf="book.isAddBasket" class="btn btn-warning mt-3" (click)="book.isAddBasket = false; deleteBookFromBasket(book.id)">Удалить из корзины</button>
-        <a class="btn btn-primary mt-3" href=#>Подробней</a>
+        <a class="btn btn-primary mt-3" routerLink="/book/{{book.id}}" routerLinkActive="active" [routerLinkActiveOptions]={exact:true} href=#>Подробней</a>
       </div>
     </div>
   </div>

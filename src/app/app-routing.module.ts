@@ -11,6 +11,7 @@ import { RegistrationComponent } from './components/registration/registration.co
 import { ClientHomeComponent } from './components/client-home/client-home.component';
 import { ClientCheckoutComponent } from './components/client-checkout/client-checkout.component';
 import { OrdersComponent } from './components/orders/orders.component';
+import { BookComponent } from './components/book/book.component';
 
 const routes: Routes = [
   { path: '', component: ClientHomeComponent },
@@ -18,6 +19,7 @@ const routes: Routes = [
   { path: 'registration', component: RegistrationComponent },
   { path: 'about', component: AboutComponent },
   { path: 'checkout', component: ClientCheckoutComponent },
+  { path: 'book/:id', component: BookComponent },
   { path: 'orders', component: OrdersComponent, canActivate: [AuthGuard] },
   { path: 'panel', component: PanelComponent, canActivate: [AuthGuard] },
   { path: 'addbook', component: AddBookComponent, canActivate: [AuthGuard] },

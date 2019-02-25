@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { toDate } from '@angular/common/src/i18n/format_date';
+import { toDate, isDate } from '@angular/common/src/i18n/format_date';
 
 @Pipe({
   name: 'customDate'
@@ -7,7 +7,8 @@ import { toDate } from '@angular/common/src/i18n/format_date';
 export class CustomDatePipe implements PipeTransform {
 
   transform(value: any, locale?: any, format?:any): any {
-    let longDate = value.toDate();
+    if(value){
+      let longDate = value.toDate();
     let date = new Date(longDate);
     let result;
     switch(format){
@@ -23,5 +24,7 @@ export class CustomDatePipe implements PipeTransform {
     }
     return result;
   }
+    }
+    
 
 }
