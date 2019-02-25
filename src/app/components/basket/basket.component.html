@@ -4,10 +4,10 @@
     <span class="badge badge-success ml-1">{{basketItems.length}}</span>
   </div>
   <!-- dropdown -->
-  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" [hidden]="!basketItems.length">
+  <div class="dropdown-menu" [class.auth-menu]="isAuthenticate" aria-labelledby="dropdownMenuButton" [hidden]="!basketItems.length">
     <div class="dropdown-item d-flex align-items-center" *ngFor="let item of basketItems">
       <span>{{(item.name.length>20) ? (item.name | slice:0:20) + '...' : (item.name)}}</span>
-      <span class="ml-3 text-success mr-4">{{item.price | currency}}</span>
+      <span class="ml-2 mr-2 ml-sm-3 mr-sm-4 text-success">{{item.price | currency}}</span>
       <i class="fa fa-remove ml-auto text-danger" (click)="deleteBasketItem(item.id)"></i>
     </div>
     <div class="dropdown-item mt-3">

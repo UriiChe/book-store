@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BasketService } from 'src/app/services/basket.service';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-basket',
@@ -8,14 +9,20 @@ import { BasketService } from 'src/app/services/basket.service';
 })
 export class BasketComponent implements OnInit {
   basketItems=[];
-
-  constructor( public basketService:BasketService) { }
+  isAuthenticate: boolean;
+  constructor( public basketService:BasketService,
+               public auth: AuthService) { }
 
   ngOnInit() {
     // Get all baskets
     this.basketService.getBasketItem().subscribe(items=>{
       this.basketItems = items;
     });
+    this.auth.checkAuth().subscribe(authStatus=>{
+      if(authStatus){
+        this.isAuthenticate = true;
+      } else this.isAuthenticate = false;
+    })
   }
   buyBook(){
   }

@@ -14,11 +14,26 @@
 .empty{
     color: rgba(255, 255, 255, 1);
 };
-@media screen and (max-width: "550px"){
+@media screen and (max-width: "520px"){
     .basket-container:hover{
         .dropdown-menu{
-            right: auto;
-            left: -4.5rem;
+            right: -8rem;
+            left: auto;
+        };
+        .dropdown-menu.auth-menu{
+            right: -5rem;
+            left: auto;
+        }
+    }
+}
+@media screen and (max-width: "400px"){
+    .basket-container:hover{
+        .dropdown-menu{
+            right: -11rem;
+            left: auto;
+        }
+        .dropdown-item{
+            padding: 4px 12px;  
         }
     }
 }
