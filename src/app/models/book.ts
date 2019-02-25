@@ -11,7 +11,8 @@ export interface Book{
     description: string;
     links:BookLinks[];
     price: number,
-    data?: string,
+    date?: '',
     isAddBasket?: boolean,
-    sum?: number
+    sum?: number,
+    image?: string
 }

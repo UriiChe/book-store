@@ -27,6 +27,7 @@ import { ClientHomeComponent } from './components/client-home/client-home.compon
 import { BasketService } from './services/basket.service';
 import { ClientCheckoutComponent } from './components/client-checkout/client-checkout.component';
 import { OrdersComponent } from './components/orders/orders.component';
+import { BookComponent } from './components/book/book.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { OrdersComponent } from './components/orders/orders.component';
     BasketComponent,
     ClientHomeComponent,
     ClientCheckoutComponent,
-    OrdersComponent
+    OrdersComponent,
+    BookComponent
   ],
   imports: [
     BrowserModule,

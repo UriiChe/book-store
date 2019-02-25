@@ -15,7 +15,6 @@ import * as firebase from 'firebase/app'
 export class AddBookComponent implements OnInit {
   bookId:string;
   bookForm:FormGroup;
-
   constructor(
     public booksService: BooksService,
     public router: Router,
@@ -56,7 +55,6 @@ export class AddBookComponent implements OnInit {
         })
       })
     }
-
   ngOnInit() {
   }
 
