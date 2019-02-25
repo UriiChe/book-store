@@ -24,7 +24,7 @@
                   formControlName="description">
         </div>
         <fieldset formArrayName="links">
-          <div *ngFor="let link of bookFormLinks.controls; let i=index">
+          <div *ngFor="let link of bookForm.controls['links'].controls; let i=index">
             <div class="form-group" formGroupName="{{i}}">
                 <label for="link{{i}}"> Link: {{link.controls['type'].value}}</label>
                 <input type="text" 
